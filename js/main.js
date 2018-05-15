@@ -17,9 +17,15 @@ $(document).ready(function() {
           film.push({
             title: response.results[i].title,
             id: response.results[i].title,
-            url: response.results[i].url
+            url: response.results[i].url,
+            release: response.results[i].release_date
           })
-
+          film = film.sort(function(a,b){
+            var dateA = new Date(a.release);
+            var dateB = new Date(b.release);
+            return dateA - dateB;
+          });
+          console.log(film);
           var dropdownHtml = [];
           $.each(film, function(i){
             var newDropdown = "<li id="+film[i].id+">"+film[i].title+"</li>"
