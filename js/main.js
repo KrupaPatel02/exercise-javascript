@@ -20,20 +20,20 @@ $(document).ready(function() {
             url: response.results[i].url,
             release: response.results[i].release_date
           })
-          film = film.sort(function(a,b){
+           film.sort(function(a,b){
             var dateA = new Date(a.release);
             var dateB = new Date(b.release);
             return dateA - dateB;
           });
+          }
           console.log(film);
           var dropdownHtml = [];
           $.each(film, function(i){
-            var newDropdown = "<li id="+film[i].id+">"+film[i].title+"</li>"
+            var newDropdown = "<a href='#' style='text-decoration:none'><li id="+film[i].id+">"+film[i].title+"</li></a>"
             dropdownHtml += newDropdown;
           })
 
           $(".dropdown-menu").html(dropdownHtml);
-            }
 
           var filmData;
           $("li").click(function () {
