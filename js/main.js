@@ -83,9 +83,9 @@ $(document).ready(function() {
                       })
                       $.each(filmSelected, function(val){
                         tablerow += "<tr>"
-                        tablerow += "<td id='charName'>"+ filmSelected[val].name + "</td>";
+                        tablerow += "<td id='charName'>"+ filmSelected[val].name + "<span class='glyphicon glyphicon-remove' onclick='deleteRow(this)'></span></td>";
                         tablerow += "<td id='starships'>" + filmSelected[val].starships + "</td>";
-                        tablerow += "<td id='btn' class='btn-default btn-danger' value='Delete' style='width:100px;' onclick='deleteRow(this)'>" + "Delete" + "</td>";
+                        // tablerow += "<td id='btn' class='btn-default btn-danger' value='Delete' style='width:100px;' onclick='deleteRow(this)'>" + "Delete" + "</td>";
                         tablerow += "</tr>"
                       })
                       return $("tbody").html(tablerow);
